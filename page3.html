@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the York-shire Airport team, discover our story, and find contact information and office hours in Rock Hill, South Carolina.">
+  <title>About Us &amp; Contact | York-shire Airport</title>
+  <!-- Author: Peter Nguyen | Date: November 7, 2026 | ITEC 101: Page 3 -->
+  <!-- All CSS is embedded below. The original airport illustration is embedded in the img element so this file works on its own. -->
+  <style>
+    :root { --ink:#193c38; --paper:#f8f6ef; --orange:#b84e2d; --muted:#50635d; --line:#d9ded3; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:24px; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial,Helvetica,sans-serif; line-height:1.7; }
+    a { color:inherit; text-underline-offset:4px; }
+    a:focus-visible, summary:focus-visible { outline:3px solid var(--orange); outline-offset:6px; }
+    .wrap { width:min(1140px,calc(100% - 64px)); margin:auto; }
+    .skip { position:absolute; top:-90px; left:16px; background:white; padding:12px; z-index:5; }
+    .skip:focus { top:12px; }
+    header { border-bottom:1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:102px; }
+    .brand { text-decoration:none; display:flex; align-items:center; gap:13px; }
+    .mark { display:grid; place-items:center; width:43px; height:43px; border:1px solid var(--ink); border-radius:50%; font-size:25px; }
+    .brand strong { display:block; font-size:19px; letter-spacing:-.5px; line-height:1.3; }
+    .brand small { display:block; text-transform:uppercase; letter-spacing:2.1px; font-size:9px; }
+    nav { display:flex; gap:28px; align-items:center; }
+    nav a { text-decoration:none; font-size:13px; font-weight:bold; padding:8px 0; }
+    nav a[aria-current] { border-bottom:2px solid var(--orange); }
+    .eyebrow { color:var(--orange); font-size:11px; letter-spacing:2.5px; font-weight:bold; text-transform:uppercase; margin:0 0 20px; }
+    .hero { display:grid; grid-template-columns:1.05fr 1fr; gap:70px; padding-top:62px; padding-bottom:66px; align-items:center; }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2 { font-family:Georgia,'Times New Roman',serif; font-weight:normal; letter-spacing:-2px; line-height:1.08; }
+    h1 { font-size:clamp(45px,5.5vw,71px); margin-bottom:23px; }
+    .intro { max-width:370px; color:var(--muted); font-size:16px; margin-bottom:28px; }
+    .button { display:inline-block; background:var(--ink); color:#fff; text-decoration:none; padding:12px 22px; font-size:13px; font-weight:bold; }
+    .button:hover { background:#2e5550; }
+    .hero figure { margin:0; position:relative; }
+    .hero img { display:block; width:100%; height:auto; border-radius:150px 4px 4px 4px; }
+    .image-caption { position:absolute; bottom:20px; right:-14px; padding:8px 16px; color:white; background:var(--ink); font-size:10px; text-transform:uppercase; letter-spacing:2px; }
+    .story { display:grid; grid-template-columns:.8fr 1.4fr; gap:85px; border-top:1px solid var(--line); padding:65px 0; }
+    h2 { font-size:42px; margin-bottom:18px; }
+    .section-num { color:var(--orange); font-size:11px; letter-spacing:2px; display:block; margin-bottom:15px; }
+    .story p { color:var(--muted); font-size:15px; margin-bottom:16px; }
+    .story .closing { color:var(--ink); font-weight:bold; margin-bottom:0; }
+    .team-section { background:#e9ede4; padding:64px 0 70px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:32px; }
+    .section-head h2 { margin:0; }
+    .section-head p { margin:0; color:var(--muted); font-size:13px; }
+    .team { display:grid; grid-template-columns:repeat(3,1fr); gap:35px; }
+    .person { border-top:1px solid #b5c3b5; padding-top:24px; }
+    .initials { display:grid; place-items:center; width:58px; height:58px; border-radius:50%; background:var(--ink); color:var(--paper); font-family:Georgia,serif; font-size:23px; margin-bottom:23px; }
+    .person:nth-child(2) .initials { background:#7b4d35; }
+    .person:nth-child(3) .initials { background:#55684d; }
+    h3 { font-size:18px; letter-spacing:-.3px; line-height:1.4; margin-bottom:5px; }
+    .role { color:var(--orange); font-weight:bold; text-transform:uppercase; letter-spacing:1px; font-size:10px; margin-bottom:14px; }
+    .bio { color:var(--muted); font-size:13px; margin:0; }
+    .contact-section { padding:70px 0; display:grid; grid-template-columns:1.2fr .8fr; gap:75px; }
+    .contact-lead { color:var(--muted); font-size:14px; margin-bottom:28px; }
+    .contact-list { margin:0; }
+    .contact-row { display:grid; grid-template-columns:105px 1fr; padding:13px 0; border-bottom:1px solid var(--line); gap:15px; }
+    dt { text-transform:uppercase; letter-spacing:1.5px; font-size:10px; font-weight:bold; padding-top:4px; }
+    dd { margin:0; font-size:14px; overflow-wrap:anywhere; }
+    dd small { color:var(--muted); font-size:12px; }
+    .hours { background:var(--ink); color:var(--paper); padding:34px; align-self:start; margin-top:34px; }
+    .hours .section-num { color:#efb68d; }
+    .hours h3 { font-family:Georgia,serif; font-size:30px; font-weight:normal; margin-bottom:23px; }
+    .hours dl { margin:0; }
+    .hours dt { font-size:11px; color:#d1ded1; text-transform:none; letter-spacing:0; }
+    .hours dd { font-size:18px; margin:3px 0 20px; }
+    .hours p { margin:22px 0 0; border-top:1px solid #56716b; padding-top:18px; font-size:12px; color:#d1ded1; }
+    .faq-section { border-top:1px solid var(--line); padding:57px 0 70px; display:grid; grid-template-columns:.8fr 1.4fr; gap:85px; }
+    .faq-section h2 { font-size:39px; }
+    details { border-bottom:1px solid var(--line); padding:18px 0; }
+    details:first-child { border-top:1px solid var(--line); }
+    summary { cursor:pointer; font-weight:bold; font-size:15px; padding-right:14px; }
+    details p { color:var(--muted); font-size:14px; margin:14px 0 0; }
+    footer { background:var(--ink); color:var(--paper); padding:30px 0; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:25px; }
+    footer strong { font-family:Georgia,serif; font-size:22px; font-weight:normal; }
+    footer p { color:#d1ded1; font-size:11px; margin:4px 0 0; max-width:590px; }
+    footer a { font-size:12px; white-space:nowrap; }
+    @media(max-width:800px) {
+      .wrap { width:calc(100% - 40px); }
+      .hero { gap:30px; padding-top:40px; }
+      .story,.faq-section { gap:35px; grid-template-columns:1fr 1.4fr; }
+      .contact-section { gap:30px; }
+      .team { gap:22px; }
+      nav { gap:18px; }
+    }
+    @media(max-width:600px) {
+      .nav { flex-direction:column; align-items:flex-start; padding:20px 0 15px; gap:15px; }
+      nav { width:100%; justify-content:space-between; gap:10px; }
+      nav a { font-size:12px; }
+      .hero,.story,.contact-section,.faq-section { grid-template-columns:1fr; gap:28px; }
+      .hero { padding:36px 0 45px; }
+      .hero img { max-height:380px; object-fit:cover; border-radius:100px 3px 3px 3px; }
+      .image-caption { right:-5px; }
+      h1 { font-size:52px; }
+      h2 { font-size:36px; }
+      .story,.contact-section,.faq-section { padding:42px 0; }
+      .team-section { padding:42px 0; }
+      .section-head { flex-direction:column; align-items:flex-start; gap:15px; }
+      .team { grid-template-columns:1fr; gap:28px; }
+      .person { display:grid; grid-template-columns:58px 1fr; column-gap:18px; }
+      .initials { grid-row:1 / 4; margin-bottom:0; }
+      .person h3,.person p { grid-column:2; }
+      .hours { margin:0; padding:28px; }
+      .footer-inner { align-items:flex-start; flex-direction:column; gap:15px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="York-shire Airport home"><span class="mark" aria-hidden="true">✈</span><span><strong>York-shire Airport</strong><small>Rock Hill, South Carolina</small></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="page2.html">Products &amp; Services</a><a href="page3.html" aria-current="page">About &amp; Contact</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <section class="hero" aria-labelledby="hero-title">
+    <div><p class="eyebrow">About us &amp; contact</p><h1 id="hero-title">Less waiting.<br>More flying.</h1><p class="intro">A local vision for convenient hangar space, friendly service, and a place for our aviation community.</p><a class="button" href="#contact">Get in touch &nbsp; ↗</a></div>
+    <figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNzYwIiB2aWV3Qm94PSIwIDAgOTAwIDc2MCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJza3kiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2FmYzdjNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2RjZTNkMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGZpbGw9InVybCgjc2t5KSIgZD0iTTAgMGg5MDB2NzYwSDB6Ii8+PGNpcmNsZSBjeD0iNjk4IiBjeT0iMTQ2IiByPSI3MyIgZmlsbD0iI2Y4ZTdiOCIvPjxwYXRoIGZpbGw9IiM3ODkwODIiIGQ9Ik0wIDM3M1ExMjAgMzA1IDI0MCAzNjNUNDgwIDM0OFQ3MjAgMzU0VDk2MCAzMjZWNzYwSDB6Ii8+PHBhdGggZmlsbD0iIzQ3NjY1YSIgZD0iTTAgNDQwbDEwMC00NyA4MyAzMSAxMDctNDkgMTE5IDUwIDEwMC0zMCAxMzcgNDAgMTI3LTQzIDEyNyAzMnYzMzZIMHoiLz48cGF0aCBkPSJNMzk0IDc2MGwxMTAtMzQzaDYybDIwMiAzNDN6IiBmaWxsPSIjMjYzYjNiIi8+PHBhdGggZD0iTTU1NCA3MzNsLTYtNTdtLTctMzgtNS00NG0tNS0zMC0zLTMzbS00LTIzLTItMjRtLTMtMTgtMi0xOCIgc3Ryb2tlPSIjZmFmM2RkIiBzdHJva2Utd2lkdGg9IjgiLz48cGF0aCBkPSJNNDIxIDcyOGw4My0yNzVtMjI2IDI3NUw1NjYgNDUzIiBzdHJva2U9IiNjOGNkYmMiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGZpbGw9IiNjNmQxYmYiIGQ9Ik0wIDU0MGwzMDktNjEgNzAgNDd2MTY5SDB6Ii8+PHBhdGggZmlsbD0iI2U5ZTRkMSIgZD0iTTAgNTIzbDI2Ny02MSAxMTIgNjQtMzc5IDYxeiIvPjxwYXRoIGZpbGw9IiMyMDNjM2IiIGQ9Ik0zMSA1ODdsOTktMTl2OTlsLTk5IDEwem0xMjItMjMgOTgtMTh2MTEzbC05OCA0eiIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyNyAzMDApIHJvdGF0ZSgtMTYpIj48cGF0aCBkPSJNLTExIDY5bC01LTgxLTE1OCAyMy05LTE4IDE2NC01NyAzLTU5cTEtMzEgMTYtMzF0MTYgMzFsMyA1OUwxODMtN2wtOSAxOEwxNi0xMiAxMSA2OWw0NiAyMnYxMkwwIDkybC01NyAxMVY5MXoiIGZpbGw9IiNmZmY5ZTkiIHN0cm9rZT0iIzI2M2UzYyIgc3Ryb2tlLXdpZHRoPSI0Ii8+PHBhdGggZD0iTS04LTg2cTgtOCAxNiAwdjE4SC04eiIgZmlsbD0iIzM1NTc1NCIvPjxwYXRoIGQ9Ik0tNCAyN2g4djQ4aC04eiIgZmlsbD0iI2RmNzQ0OCIvPjwvZz48cGF0aCBkPSJNNjEgMTA0aDE2MG0tODAtMjB2NDBtLTgwIDQxaDk1IiBzdHJva2U9IiNmZmY5ZTkiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iLjUiLz48dGV4dCB4PSI1OCIgeT0iNzA3IiBmaWxsPSIjMjEzZDNhIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgbGV0dGVyLXNwYWNpbmc9IjQiPlJPT00gVE8gTEFORC4gU1BBQ0UgVE8gQkVMT05HLjwvdGV4dD48L3N2Zz4=" width="900" height="760" alt="Illustration of a small airplane flying above a runway and aircraft hangars."><figcaption class="image-caption">Rooted in Rock Hill · Built for pilots</figcaption></figure>
+  </section>
+  <section class="story" aria-labelledby="story-title">
+    <div><span class="section-num">01 / OUR STORY</span><h2 id="story-title">A shared frustration.<br>A local solution.</h2></div>
+    <div><p>York-shire Airport started with a frustration we shared. Living in the Rock Hill area near Charlotte Douglas International Airport, we were tired of the long waits to secure hangar space for our planes. We were not the only people who felt this way, so we made a goal.</p><p>Our goal was to create a place that could help unburden CLT Airport and create a space for our local community.</p><p class="closing">With convenient hangar space and friendly service, we wanted to give pilots a place where they could spend less time waiting and more time flying.</p></div>
+  </section>
+</main>
+<section class="team-section" aria-labelledby="team-title">
+  <div class="wrap"><div class="section-head"><div><span class="section-num">02 / THE PEOPLE BEHIND THE PLAN</span><h2 id="team-title">Meet the team.</h2></div><p>Three roles. One shared goal.</p></div>
+  <div class="team">
+    <article class="person"><div class="initials" aria-hidden="true">HP</div><h3>Helena Podgorski</h3><p class="role">Web Developer</p><p class="bio">Maintains the York-shire Airport website and keeps its information up to date. Uses feedback from visitors to improve the website and make it easier to use.</p></article>
+    <article class="person"><div class="initials" aria-hidden="true">CS</div><h3>Christian Sonne</h3><p class="role">IT Specialist</p><p class="bio">Maintains the airport’s computer systems and updates system settings. Reviews system status and alerts, fixes technical issues, and restores service when problems occur.</p></article>
+    <article class="person"><div class="initials" aria-hidden="true">PN</div><h3>Peter Nguyen</h3><p class="role">Industrial Engineer</p><p class="bio">Works to improve airport operations by reviewing workflow performance data. Uses this information to improve efficiency and help daily operations run smoothly.</p></article>
+  </div></div>
+</section>
+<div class="wrap">
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <div><span class="section-num">03 / LET’S CONNECT</span><h2 id="contact-title">Contact us.</h2><p class="contact-lead">Questions about hangar space or planning a visit? Here’s where to find us.</p>
+    <!-- Contact details and social handles are fictional for this class project. -->
+    <dl class="contact-list">
+      <div class="contact-row"><dt>Email</dt><dd>info@yorkshireairport.com</dd></div>
+      <div class="contact-row"><dt>Phone</dt><dd>(803) 555-0147</dd></div>
+      <div class="contact-row"><dt>Location</dt><dd>Rock Hill, SC 29732</dd></div>
+      <div class="contact-row"><dt>Social media</dt><dd>@YorkshireAirport<br><small>Instagram &amp; Facebook</small></dd></div>
+    </dl></div>
+    <aside class="hours" aria-labelledby="hours-title"><span class="section-num">PLAN YOUR VISIT</span><h3 id="hours-title">Hours of operation</h3><dl><dt>Monday–Friday</dt><dd>8:00 AM–6:00 PM</dd><dt>Saturday–Sunday</dt><dd>9:00 AM–4:00 PM</dd></dl><p>All times are local to Rock Hill, South Carolina.</p></aside>
+  </section>
+  <section class="faq-section" aria-labelledby="faq-title">
+    <div><span class="section-num">04 / BEFORE YOU ARRIVE</span><h2 id="faq-title">Frequently asked<br>questions.</h2></div>
+    <div>
+      <details open><summary>Do I need to own a plane to visit?</summary><p>While we are mainly in the hangar storage business, you do not need to own a plane to visit. To create a reservation, you just need the plane’s information and your identification.</p></details>
+      <details open><summary>Can I visit just to watch planes take off?</summary><p>We are located in a very open area. While you can visit to watch planes, you can also watch them just as well from outside the fenced area.</p></details>
+      <details open><summary>Can I rent a hangar for just one night?</summary><p>Yes, you can rent a hangar for just one night if needed.</p></details>
+    </div>
+  </section>
+</div>
+<footer><div class="wrap footer-inner"><div><strong>York-shire Airport</strong><p>© 2026 York-shire Airport · ITEC 101 student project.<br>Fictional business, contact details, and hours. Not affiliated with Charlotte Douglas International Airport or Rock Hill–York County Airport.</p></div><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
