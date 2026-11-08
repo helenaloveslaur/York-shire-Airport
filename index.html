@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>York(shire) Airport</title>
+
+<style>
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f7f4;
+    color: #333;
+}
+
+/* NAVIGATION BAR */
+
+header {
+    background: #06376a;
+    color: white;
+    padding: 18px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #25b4ff;
+}
+
+/* HERO SECTION */
+
+.hero {
+    height: 400px;
+
+    background:
+        linear-gradient(
+            rgba(0, 32, 65, 0.48),
+            rgba(0, 32, 65, 0.48)
+        ),
+        url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 43px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+.btn {
+    display: inline-block;
+    background: #08a8f5;
+    color: white;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #007ac2;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    padding: 55px 15%;
+    text-align: center;
+    background: white;
+}
+
+.about h2 {
+    font-size: 29px;
+    margin-bottom: 15px;
+    color: #34465c;
+}
+
+.about p {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* SERVICES */
+
+.services {
+    padding: 65px 10%;
+    text-align: center;
+    background: #f8f7f4;
+}
+
+.services h2 {
+    font-size: 30px;
+    color: #34465c;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 7px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #34465c;
+}
+
+.card p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* HOW IT WORKS */
+
+.how {
+    background: white;
+    padding: 70px 10%;
+    text-align: center;
+}
+
+.how h2 {
+    font-size: 30px;
+    margin-bottom: 35px;
+    color: #34465c;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.step {
+    padding: 25px;
+}
+
+.number {
+    background: #08a8f5;
+    color: white;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.step h3 {
+    margin-bottom: 10px;
+    color: #34465c;
+}
+
+.step p {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* SPECIAL OFFERS */
+
+.offers {
+    background: #eaf4fc;
+    text-align: center;
+    padding: 65px 10%;
+}
+
+.offers h2 {
+    font-size: 30px;
+    color: #34465c;
+    margin-bottom: 15px;
+}
+
+.offers p {
+    color: #667;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* REVIEW */
+
+.review {
+    background: white;
+    padding: 60px 15%;
+    text-align: center;
+}
+
+.review h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #34465c;
+}
+
+.review blockquote {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    line-height: 1.7;
+}
+
+.review .author {
+    margin-top: 18px;
+    font-weight: bold;
+    color: #34465c;
+}
+
+/* FOOTER */
+
+footer {
+    background: #06376a;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 5px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 900px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        height: 350px;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .service-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .services,
+    .how {
+        padding: 50px 7%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+
+    <div class="logo">
+        ✈ York(shire) Airport
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="page2.html">Services</a>
+        <a href="page3.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>Your Journey Starts Here</h1>
+
+        <p>
+            Affordable, convenient, and comfortable
+            regional aviation.
+        </p>
+
+        <a href="#services" class="btn">
+            Explore Our Services
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <h2>Welcome to York(shire) Airport</h2>
+
+    <p>
+        York(shire) Airport is a modern reliever
+        airport designed to make regional aviation
+        easier and more convenient.
+
+        We provide services for private pilots,
+        business travelers, and smaller aircraft
+        while helping reduce congestion at
+        larger airports.
+    </p>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <h2>Our Airport Services</h2>
+
+    <p class="subtitle">
+        Everything you need for a smooth
+        and enjoyable journey.
+    </p>
+
+    <div class="service-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80"
+                alt="Airplane flying above clouds"
+            >
+
+            <div class="card-content">
+
+                <h3>Regional Flights</h3>
+
+                <p>
+                    Convenient regional air travel
+                    connecting Yorkshire with
+                    nearby destinations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80"
+                alt="Parking garage"
+            >
+
+            <div class="card-content">
+
+                <h3>Airport Parking</h3>
+
+                <p>
+                    Convenient parking facilities
+                    with easy access to the airport
+                    and aircraft areas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80"
+                alt="Comfortable lounge facilities"
+            >
+
+            <div class="card-content">
+
+                <h3>Passenger Lounge</h3>
+
+                <p>
+                    Relax in a comfortable
+                    environment before your
+                    next flight.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 4 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=80"
+                alt="Airport shuttle bus"
+            >
+
+            <div class="card-content">
+
+                <h3>Airport Shuttle</h3>
+
+                <p>
+                    Convenient transportation
+                    options to help you reach
+                    the airport with ease.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how" id="how">
+
+    <h2>How It Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <h3>Explore</h3>
+
+            <p>
+                Browse our available
+                airport services and
+                facilities.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <h3>Plan</h3>
+
+            <p>
+                Choose the services that
+                best fit your travel
+                needs.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <h3>Take Off</h3>
+
+            <p>
+                Enjoy a convenient and
+                comfortable aviation
+                experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SPECIAL OFFERS -->
+
+<section class="offers" id="offers">
+
+    <h2>Special Offers</h2>
+
+    <p>
+        Discover convenient aviation services
+        and exciting opportunities at
+        York(shire) Airport.
+    </p>
+
+    <a href="mailto:info@yorkshireairport.example"
+       class="btn">
+        Contact Us
+    </a>
+
+</section>
+
+
+<!-- CUSTOMER REVIEW -->
+
+<section class="review">
+
+    <h2>What Our Customers Say</h2>
+
+    <blockquote>
+        "York(shire) Airport provides
+        a convenient and welcoming
+        experience. The facilities
+        are excellent and the staff
+        are always helpful."
+    </blockquote>
+
+    <p class="author">
+        ★★★★★ — Emily R., Private Pilot
+    </p>
+
+    <p style="font-size:12px;color:#999;margin-top:8px;">
+        Fictional customer review
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        ✈ York(shire) Airport
+    </p>
+
+    <p>
+        Your Journey Starts Here
+    </p>
+
+    <p>
+        © 2026 York(shire) Airport.
+    </p>
+
+</footer>
+
+</body>
+</html>
