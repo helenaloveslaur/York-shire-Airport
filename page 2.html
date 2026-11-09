@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>York-shire Airport | Services</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #263445;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #12345a;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #83c8ff;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(
+                rgba(12, 39, 68, 0.75),
+                rgba(12, 39, 68, 0.75)
+            ),
+            url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .hero a {
+            display: inline-block;
+            margin-top: 25px;
+            background-color: #2588d8;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* General sections */
+        section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            color: #12345a;
+            font-size: 30px;
+        }
+
+        .section-title p {
+            color: #657487;
+        }
+
+        /* Service cards */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 20px;
+        }
+
+        .service-info h3 {
+            color: #12345a;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #16804a;
+            font-size: 21px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        /* Process section */
+        .process {
+            background-color: #e8f1fa;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        .step {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+        }
+
+        .step-number {
+            background-color: #2588d8;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #12345a;
+            margin-bottom: 10px;
+        }
+
+        /* Promotion */
+        .promotion {
+            background: linear-gradient(120deg, #12345a, #2477b9);
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            padding: 45px 20px;
+        }
+
+        .promotion h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .promo-code {
+            display: inline-block;
+            background-color: white;
+            color: #12345a;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #102941;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 900px) {
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                text-align: center;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .services,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>✈ York-shire Airport</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="page2.html">Services</a>
+            <a href="page3.html">How It Works</a>
+            
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero" id="home">
+        <h2>Your Journey Starts Here</h2>
+        <p>Affordable, convenient, and comfortable regional air travel.</p>
+        <a href="#services">Explore Our Services</a>
+    </div>
+
+    <!-- Services -->
+    <section id="services">
+
+        <div class="section-title">
+            <h2>Our Airport Services</h2>
+            <p>Everything you need for a smooth and enjoyable trip.</p>
+        </div>
+
+        <div class="services">
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600"
+                     alt="Passenger airplane">
+
+                <div class="service-info">
+                    <h3>Regional Flights</h3>
+                    <p>Convenient flights connecting smaller communities
+                    to popular destinations.</p>
+                    <div class="price">Starting at $89</div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600"
+                     alt="Airport parking">
+
+                <div class="service-info">
+                    <h3>Airport Parking</h3>
+                    <p>Safe and convenient parking spaces located
+                    just minutes from the terminal.</p>
+                    <div class="price">$12 / Day</div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=600"
+                     alt="Airport lounge">
+
+                <div class="service-info">
+                    <h3>Passenger Lounge</h3>
+                    <p>Relax before your flight with comfortable seating,
+                    refreshments, and free Wi-Fi.</p>
+                    <div class="price">$20 / Visit</div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600"
+                     alt="Passenger transportation">
+
+                <div class="service-info">
+                    <h3>Airport Shuttle</h3>
+                    <p>Affordable transportation between the airport
+                    and nearby towns and hotels.</p>
+                    <div class="price">$15 / Person</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="process" id="process">
+
+        <div class="section-title">
+            <h2>How It Works</h2>
+            <p>Getting to your destination is simple with York-shire Airport.</p>
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Book Your Trip</h3>
+                <p>Choose your destination, purchase your ticket,
+                and select any additional services.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Arrive & Check In</h3>
+                <p>Visit our terminal, check in for your flight,
+                and prepare for boarding.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Enjoy Your Flight</h3>
+                <p>Board your plane and enjoy a comfortable
+                journey to your destination.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Special Promotion -->
+    <section id="offers">
+
+        <div class="promotion">
+            <h2>✈ Special Travel Promotion!</h2>
+
+            <p>Save 15% on your next regional flight
+            when you book directly with York-shire Airport.</p>
+
+            <p>Use this exclusive promotional code at checkout:</p>
+
+            <div class="promo-code">YORK15</div>
+
+            <p style="margin-top: 15px;">
+                Limited-time fictional offer. Terms and conditions apply.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>York-shire Airport</h3>
+        <p>Connecting Communities. Taking You Further.</p>
+        <p>© 2026 York-shire Airport | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
